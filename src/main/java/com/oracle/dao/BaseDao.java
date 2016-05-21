@@ -1,4 +1,4 @@
-package com.oracle.dao.impl;
+package com.oracle.dao;
 
 import java.io.Serializable;
 import java.util.List;
