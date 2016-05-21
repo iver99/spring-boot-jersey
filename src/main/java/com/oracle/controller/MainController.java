@@ -7,18 +7,19 @@ import javax.ws.rs.Path;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Path("/hello")
+//@Path("/hello")
 @Component
 public class MainController {
 
 	@GET
-	public String hello(){
-		return "get";
+	@Path("getMethod")
+	public String getMethod(){
+		return " this is a get method";
 	}
 	
 	@POST
-	@Path("/test")
+	@Path("/postMethod")
 	public String test(){
-		return "post";
+		return "this is a post method";
 	}
 }
