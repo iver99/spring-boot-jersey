@@ -21,8 +21,8 @@ public class MainAPITest {
 
 	@Test
 	public void testGetMethod(){
-		/*ResponseEntity<String> re=restTemplate.getForEntity("http://localhost:8080/test", String.class);
+		ResponseEntity<String> re=restTemplate.getForEntity("http://123.56.143.59:8585/DaTian/sendVcodeToPhoneAjax?phone=18401608330", String.class);
 		String returnValue=re.getBody();
-		Assert.assertEquals(returnValue, "test...");*/
+		//Assert.assertEquals(returnValue, "test...");
 	}
 }
