@@ -1,7 +1,12 @@
 package com.oracle.dao;
 
-import com.oracle.entity.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface UserDao extends BaseDao<User>{
+import com.oracle.entity.User;
+@Transactional
+public interface UserDao extends CrudRepository<User, Long>{
+	
+	 public User findById(Long id);
 
 }

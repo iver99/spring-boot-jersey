@@ -1,8 +1,18 @@
 package com.oracle.entity;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "users")
+public class User {
+	@Id
+    @GeneratedValue
 	private Long id;
+	private String username;
+	private String password;
 	public Long getId() {
 		return id;
 	}
@@ -21,6 +31,4 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	private String username;
-	private String password;
 }

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.EntityManagerFactory;
+
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -22,8 +24,15 @@ import com.oracle.dao.BaseDao;
 @Repository
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
-	@Autowired
 	private SessionFactory sessionFactory;
+
+	/*@Autowired
+	public void SomeService(EntityManagerFactory factory) {
+		if (factory.unwrap(SessionFactory.class) == null) {
+			throw new NullPointerException("factory is not a hibernate factory");
+		}
+		this.sessionFactory = factory.unwrap(SessionFactory.class);
+	}*/
 
 	/**
 	 * 获得当前事物的session

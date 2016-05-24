@@ -1,4 +1,4 @@
-package com.oracle.controller;
+package com.oracle.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
