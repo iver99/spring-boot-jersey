@@ -22,7 +22,8 @@ public class UserAPI {
 	//@RequestMapping("/get-by-email")
 	@GET
 	@Path("/user/{id}")
-    public String getByEmail(@PathVariable int id) {
+    public String getByEmail(@PathVariable Integer id) {
+		//FIXME cannot retrieve the value of id
 	  logger.info("user id is "+id);
 	  Long uId=Long.valueOf(id);
       String userId;
