@@ -2,15 +2,17 @@ package com.oracle.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.oracle.dao.UserDao;
 import com.oracle.entity.User;
-@Path("/")
+@Path("/user")
 @Component
 public class UserAPI {
 	
@@ -18,20 +20,34 @@ public class UserAPI {
 
 	@Autowired
 	UserDao userDao;
-	
-	//@RequestMapping("/get-by-email")
+	/**
+	 * this method is for testing
+	 * @param id
+	 * @return
+	 */
 	@GET
-	@Path("/user/{id}")
-    public String getByEmail(@PathVariable Integer id) {
-		//FIXME cannot retrieve the value of id
+	@Path("/string/{id}")
+    public String getUserString(@PathParam(value="id") String id) {
 	  logger.info("user id is "+id);
 	  Long uId=Long.valueOf(id);
-      String userId;
       User user = userDao.findById(uId);
       if (user != null) {
-        userId = String.valueOf(user.getId());
+    	  String userId = String.valueOf(user.getId());
         return "The user id is: " + userId+" and user name is "+user.getUsername();
       }
       return "user " + id + " is not exist.";
     }
+	
+	/**
+	 * get user by id
+	 */
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON) 
+	public User getUser(@PathParam(value="id") String id){
+		logger.info("user id is "+id);
+		Long uId=Long.valueOf(id);
+	    User user = userDao.findById(uId);
+	    return user;
+	}
 }
