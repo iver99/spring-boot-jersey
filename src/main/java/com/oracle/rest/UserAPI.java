@@ -12,9 +12,9 @@ import com.oracle.dao.UserDao;
 import com.oracle.entity.User;
 @Path("/")
 @Component
-public class UserController {
+public class UserAPI {
 	
-	Logger logger=Logger.getLogger(UserController.class);
+	Logger logger=Logger.getLogger(UserAPI.class);
 
 	@Autowired
 	UserDao userDao;

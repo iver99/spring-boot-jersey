@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Path("/")
 @Component
-public class MainController {
+public class MainAPI {
 
 	@GET
 	@Path("/test")
