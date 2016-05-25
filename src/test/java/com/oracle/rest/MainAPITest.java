@@ -1,14 +1,12 @@
 package com.oracle.rest;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.web.client.RestTemplate;
 
 import com.oracle.Application;
 
@@ -16,13 +14,25 @@ import com.oracle.Application;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration 
 public class MainAPITest {
+	@Autowired
+	JdbcTemplate jdbcTemplate;
 	
-	RestTemplate restTemplate=new RestTemplate();
+	/**
+	 * 		RestTemplate restTemplate = new RestTemplate();
+	        HttpHeaders headers = new HttpHeaders();
+	        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+	        headers.setContentType(type);
+	        headers.add("Accept", MediaType.APPLICATION_JSON.toString());
+	        
+	        JSONObject jsonObj = JSONObject.fromObject(params);
+	        
+	        HttpEntity<String> formEntity = new HttpEntity<String>(jsonObj.toString(), headers);
+	
+	        String result = restTemplate.postForObject(url, formEntity, String.class);
+	 */
 
 	@Test
 	public void testGetMethod(){
-		ResponseEntity<String> re=restTemplate.getForEntity("http://123.56.143.59:8585/DaTian/sendVcodeToPhoneAjax?phone=18401608330", String.class);
-		String returnValue=re.getBody();
-		//Assert.assertEquals(returnValue, "test...");
+		
 	}
 }
