@@ -11,8 +11,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 public class DataSourceConfig {
 
@@ -54,6 +56,7 @@ public class DataSourceConfig {
 	  @Bean
 	  public LocalSessionFactoryBean sessionFactory() {
 	    LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+//		AnnotationSessionFactoryBean sessionFactoryBean = new  AnnotationSessionFactoryBean();
 	    sessionFactoryBean.setDataSource(dataSource());
 	    sessionFactoryBean.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
 	    Properties hibernateProperties = new Properties();

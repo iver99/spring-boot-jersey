@@ -22,8 +22,5 @@ public class UserDaoTest {
 
 	@Test
 	public void testUser(){
-//		 User user = userDao.findById(1L);
-		User user=userDao.findOne(1L);
-		 Assert.assertNotNull(user);
 	}
 }

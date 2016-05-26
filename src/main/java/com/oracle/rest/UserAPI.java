@@ -28,9 +28,8 @@ public class UserAPI {
 	@GET
 	@Path("/string/{id}")
     public String getUserString(@PathParam(value="id") String id) {
-	  logger.info("user id is "+id);
 	  Long uId=Long.valueOf(id);
-      User user = userDao.findById(uId);
+      User user = userDao.get(User.class,uId);
       if (user != null) {
     	  String userId = String.valueOf(user.getId());
         return "The user id is: " + userId+" and user name is "+user.getUsername();
@@ -45,9 +44,8 @@ public class UserAPI {
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON) 
 	public User getUser(@PathParam(value="id") String id){
-		logger.info("user id is "+id);
 		Long uId=Long.valueOf(id);
-	    User user = userDao.findById(uId);
+	    User user = userDao.get(User.class,uId);
 	    return user;
 	}
 }
